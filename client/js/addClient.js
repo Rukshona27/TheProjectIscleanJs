@@ -43,9 +43,21 @@ export const addClientModal = () => {
         clientObj.contacts = contacts;
         console.log(clientObj);
 
-        const data = await sendClientData(clientObj, 'POST');
-        document.querySelector('.clients__tbody').append(createClientItem(data));
-        document.querySelector('.modal').remove();
+        const spinner = document.querySelector('.modal__spinner');
+
+        try {
+            spinner.style.display = 'block';
+            const data = await sendClientData(clientObj, 'POST');
+            setTimeout( () => {
+                document.querySelector('.clients__tbody').append(createClientItem(data));
+                document.querySelector('.modal').remove();
+            }, 1500);
+
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setTimeout(() => spinner.style.display = 'block', 1500)
+        }
     });
 
     createForm.modalClose.addEventListener('click', () => {
