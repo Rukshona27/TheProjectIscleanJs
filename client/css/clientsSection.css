@@ -28,6 +28,7 @@
 .display-info__item {
     font-size: 12px;
     color: var(--color-silver-chalice);
+    font-weight: 400
 }
 
 .display-info__item--id,
