@@ -1,6 +1,7 @@
 .clients__table {
     width: 100%;
     margin-bottom: 40px;
+    min-width: 1186px;
 }
 
 .clients__item {
